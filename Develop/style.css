@@ -9,11 +9,15 @@ h1 {
 #search-container {
     padding: 2%;
     position: relative;
-    box-sizing: border-box;
+}
+
+#five-day {
+    font-size: 30px;
+    padding: 2%;
 }
 
 #search-container div {
-    font-size: larger;
+    font-size: 30px;
     position: relative;
 }
 
@@ -23,8 +27,9 @@ h1 {
 }
 
 #main-card-container {
- 
-} 
+    padding: 2%;
+}
+
 
 .btn {
     text-align: center;
@@ -44,4 +49,12 @@ h1 {
   .btn:hover {
     background-color: #cecece;
   }
+
+.card-deck {
+    padding: 2%;
+}
+
+.card-deck .card-body {
+    background-color: #aeaeae;
+}
 
