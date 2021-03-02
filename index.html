@@ -27,16 +27,18 @@
 
     <body>
   
-    <div id="search-area">
+    <div id="whole-thing" class="row">
         <!-- This is the search section -->
+      <div class="col-4">
       <div id="search-container">
         <div id="searchForACity">Search for a city:</div>
         <br>
-        <form id="search-form" class="form-inline my-2 my-lg-0">
-          <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button id=bttn class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+          <input id="search-input" class="form-inline my-2 my-lg-0 input_text" type="search" placeholder="Enter the city" aria-label="Search">
+          <br>
+          <button id=bttn class="submit btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
       </div>
+
+
 
       <!-- This is the list below search section -->
       <div id="city-list-container">
@@ -49,17 +51,27 @@
         </div>
       </div>
     </div>
+  
 
       <!-- Here is the card with the current city's info displayed -->
+      
+      <div class="col-8">
+        <br>
+      <h2>Current Weather:</h2>
+
       <div id="main-card-container">
         <div class="card">
-          <div id="result-content" class="card-body">
-            This is some text within a card body.
-          </div>
+          <h2 class="name" id="name"></h2>
+          <p class="date"></p>
+          <p class="icon"></p>
+          <p class="temp"></p>
+          <p class="humidity"></p>
+          <p class="wind"></p>
+          <p class="uv"></p>
         </div>
       </div>
 
-      <div id="five-day">5-Day Forecast</div>
+      <h2>5-Day Forecast</h2>
 
       <!-- This displays the 5-day forecast -->
       <div class="card-deck">
@@ -94,6 +106,22 @@
           </div>
         </div>
       </div>
+
+
+
+      </div>
+    </div>
+
+
+
+  
+
+  
+
+
+
+
+
     
 
 
