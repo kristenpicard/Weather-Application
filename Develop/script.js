@@ -15,7 +15,7 @@ button.addEventListener('click', function(name){
 fetch('https://api.openweathermap.org/data/2.5/weather?q='+input.value+'&units=imperial&appid='+apiKey)
 .then(response => response.json())
 .then(data => {
-  
+  console.log(data);
   // These variables grab the correct data from the API
   var nameValue = data.name;
   var dateValue = moment().format('dddd, MMM DD, YYYY');
@@ -41,14 +41,16 @@ fetch('https://api.openweathermap.org/data/2.5/weather?q='+input.value+'&units=i
   .then(response => response.json())
   .then(data => {
       var uvIndexValue = data.value;
-      // uvIndex.innerHTML = "UV Index: "+uvIndexValue;
       if (uvIndexValue >= 0 && uvIndexValue < 3){
-        uvIndex.innerHTML = '<span style="color:green">UV Index: </span>'+ uvIndexValue;
+        uvIndex.innerHTML = `<span style="color:green">UV Index: ${uvIndexValue}</span>`;
       } else if (uvIndexValue >= 3 && uvIndexValue < 8){
-        uvIndex.innerHTML = '<span style="color:orange">UV Index: </span>'+ uvIndexValue;
+        uvIndex.innerHTML = `<span style="color:orange">UV Index: ${uvIndexValue}</span>`;
       } else if (uvIndexValue >= 8){
-        uvIndex.innerHTML = '<span style="color:red">UV Index: </span>'+ uvIndexValue;
+        uvIndex.innerHTML = `<span style="color:red">UV Index: ${uvIndexValue}</span>`;
       }
+
+      fiveDayForecast(latitude, longitude);
+
   });
 
   input.value ="";
@@ -57,13 +59,16 @@ fetch('https://api.openweathermap.org/data/2.5/weather?q='+input.value+'&units=i
 
 
 // 5-Day Fetch
-// fetch('https://api.openweathermap.org/data/2.5/forecast?q='+input.value+'&units=imperial&appid='+apiKey)
-//   .then(response => response.json())
-//   .then(data => {
+function fiveDayForecast (latitude, longitude){
+fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,hourly,minutely,alerts&appid=${apiKey}`
+  )
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
     
   
-//     input.value ="";
-//   });
+    input.value ="";
+  });}
 
 });
 
