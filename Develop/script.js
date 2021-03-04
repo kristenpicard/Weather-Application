@@ -57,18 +57,10 @@ fetch('https://api.openweathermap.org/data/2.5/weather?q='+input.value+'&units=i
 
 
 // 5-Day Fetch
-// fetch('https://api.openweathermap.org/data/2.5/forecase?q='+input.value+'&units=imperial&appid='+apiKey)
+// fetch('https://api.openweathermap.org/data/2.5/forecast?q='+input.value+'&units=imperial&appid='+apiKey)
 //   .then(response => response.json())
 //   .then(data => {
     
-//     var dateValue = moment().format('dddd, MMM DD, YYYY');
-//     var tempValue = data.main.temp;
-//     var humidValue = data.main.humidity;
-  
-//     date.innerHTML = dateValue;
-//     icon.innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">`;
-//     temp.innerHTML = "Temperature: "+tempValue+" °F";
-//     humidity.innerHTML = "Humidity: "+humidValue+"%";
   
 //     input.value ="";
 //   });
