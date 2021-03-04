@@ -41,13 +41,13 @@ fetch('https://api.openweathermap.org/data/2.5/weather?q='+input.value+'&units=i
   .then(response => response.json())
   .then(data => {
       var uvIndexValue = data.value;
-      uvIndex.innerHTML = "UV Index: "+uvIndexValue;
+      // uvIndex.innerHTML = "UV Index: "+uvIndexValue;
       if (uvIndexValue >= 0 && uvIndexValue < 3){
-        uvIndex.innerHTML.style.color = "green";
+        uvIndex.innerHTML = '<span style="color:green">UV Index: </span>'+ uvIndexValue;
       } else if (uvIndexValue >= 3 && uvIndexValue < 8){
-        uvIndex.innerHTML.style.color = "orange";
+        uvIndex.innerHTML = '<span style="color:orange">UV Index: </span>'+ uvIndexValue;
       } else if (uvIndexValue >= 8){
-        uvIndex.innerHTML.style.color = "red";
+        uvIndex.innerHTML = '<span style="color:red">UV Index: </span>'+ uvIndexValue;
       }
   });
 
