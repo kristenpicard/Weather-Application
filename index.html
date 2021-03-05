@@ -30,103 +30,99 @@
     <div id="whole-thing" class="row">
         <!-- This is the search section -->
       <div class="col-4">
-      <div id="search-container">
-        <div id="searchForACity">Search for a city:</div>
-        <br>
-          <input id="search-input" class="form-inline my-2 my-lg-0 input_text" type="search" placeholder="Enter the city" aria-label="Search">
+        <div id="search-container">
+          <div id="searchForACity">Search for a city:</div>
           <br>
-          <button id=bttn class="submit btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-      </div>
-
-
+            <input id="search-input" class="form-inline my-2 my-lg-0 input_text" type="search" placeholder="Enter the city" aria-label="Search">
+          <br>
+            <button id=bttn class="submit btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        </div>
 
       <!-- This is the list below search section -->
-      <div id="city-list-container">
-        <div class="card" style="width: 18rem;">
-          <ul class="list-group list-group-flush">
-            <li id="result-text" class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
+        <div id="city-list-container">
+          <div class="card" style="width: 18rem;">
+            <ul class="list-group list-group-flush">
+              <li id="result-text" class="list-group-item">Cras justo odio</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </div>
-  
 
-      <!-- Here is the card with the current city's info displayed -->
-      
+      </div>
+
       <div class="col-8">
-        <br>
-      <h2>Current Weather:</h2>
+        <br> 
+         <!-- Here is the card with the current city's info displayed -->    
+        <h2>Current Weather:</h2>
 
-      <div id="main-card-container">
-        <div class="card">
-          <h2 class="name" id="name"></h2>
-          <p class="date"></p>
-          <p class="icon"></p>
-          <p class="temp"></p>
-          <p class="humidity"></p>
-          <p class="wind"></p>
-          <p id="uv"></p>
-        </div>
+          <div id="main-card-container">
+            <div class="card">
+              <h2 class="name" id="name"></h2>
+              <p class="date"></p>
+              <p class="icon"></p>
+              <p class="temp"></p>
+              <p class="humidity"></p>
+              <p class="wind"></p>
+              <p id="uv"></p>
+            </div>
+          </div>
+
+        <!-- This displays the 5-day forecast -->
+        <h2>5-Day Forecast</h2>
+              
+          <div class="card-deck">
+
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title day-1-date"></h5>
+                <p class="card-text day-1-icon"></p>
+                <p class="card-text day-1-temp"></p>
+                <p class="card-text day-1-humidity"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title day-2-date"></h5>
+                <p class="card-text day-2-icon"></p>
+                <p class="card-text day-2-temp"></p>
+                <p class="card-text day-2-humidity"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title day-3-date"></h5>
+                <p class="card-text day-3-icon"></p>
+                <p class="card-text day-3-temp"></p>
+                <p class="card-text day-3-humidity"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title day-4-date"></h5>
+                <p class="card-text day-4-icon"></p>
+                <p class="card-text day-4-temp"></p>
+                <p class="card-text day-4-humidity"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title day-5-date"></h5>
+                <p class="card-text day-5-icon"></p>
+                <p class="card-text day-5-temp"></p>
+                <p class="card-text day-5-humidity"></p>
+              </div>
+            </div>
+
+          </div>
+
       </div>
+  </div>
 
-      <h2>5-Day Forecast</h2>
-
-      <!-- This displays the 5-day forecast -->
-      <div class="card-deck">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-        </div>
-      </div>
-
-
-
-      </div>
-    </div>
-
-
-
-  
-
-  
-
-
-
-
-
-    
-
-
-
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="Develop/script.js"></script>
