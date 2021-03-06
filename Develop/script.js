@@ -1,5 +1,4 @@
 var apiKey = "c979757ff3364fdbc7788b954c2541a8";
-
 var input = document.querySelector('.input_text');
 var main = document.querySelector('#name');
 var date = document.querySelector('.date');
@@ -10,9 +9,8 @@ var wind = document.querySelector('.wind');
 var uvIndex = document.querySelector('#uv');
 var button = document.querySelector('.submit');
 
-// City search button event listener
-button.addEventListener('click', function displayCityWeather (){
-
+// This function is a container to call other functions
+function displayCityWeather (){
   // This fetch is for the current weather section
   fetch('https://api.openweathermap.org/data/2.5/weather?q='+input.value+'&units=imperial&appid='+apiKey)
   .then(response => response.json())
@@ -27,9 +25,8 @@ button.addEventListener('click', function displayCityWeather (){
   displayCurrentWeather(data);
   displayUVIndex(latitude, longitude);
   displayFiveDayForecast(latitude, longitude);
-  
   });
-});
+};
 
 function displayCurrentWeather (data) {
   // These variables grab the correct data from the API
@@ -138,3 +135,6 @@ function displayFiveDayForecast (latitude, longitude){
 
   });
 };
+
+// Runs displayCurrentWeather on click
+button.addEventListener('click', displayCurrentWeather);
