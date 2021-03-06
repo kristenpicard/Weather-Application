@@ -10,6 +10,7 @@ var uvIndex = document.querySelector('#uv');
 var button = document.querySelector('.submit');
 var cityList = document.querySelector('.list-group');
 
+// Fetch, display and stores weather data
 function updateCityWeather () {
  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=imperial&appid=${apiKey}`)
   .then(response => response.json()).then(data => {   
@@ -18,7 +19,7 @@ function updateCityWeather () {
   });
 };
 
-// This function is a container to call other functions
+// Displays city weather
 function displayCityWeather (data){
   // Calling functions
   displayCurrentWeather(data);
@@ -26,8 +27,9 @@ function displayCityWeather (data){
   displayFiveDayForecast(data);
 };
 
+// Stores search history
 function storeSearchHistory (data) {
-  // This is storing the data that is affiliated with the city that was inputted. 
+  // Put all the data needed into a JSON object 
   var jsonData = {
     nameVal : data.name,
     dateVal : moment().format('dddd, MMM DD, YYYY'),
@@ -39,9 +41,13 @@ function storeSearchHistory (data) {
     iconVal : data.weather[0].icon
   };
 
+  // Make the JSON object a string for local storage
   var jsonDataString = JSON.stringify(jsonData);
 
+  // This is storing the data that is affiliated with the city that was inputted.
   localStorage.setItem(input.value, jsonDataString);
+
+  // Make a button and register display functions
   var cityListButton = document.createElement("button");
   cityList.append(cityListButton);
   cityListButton.innerHTML = input.value;
@@ -50,11 +56,13 @@ function storeSearchHistory (data) {
   cityListButton.addEventListener("click", displayFiveDayForecast);
 };
 
+// Displays current weather 
 function displayCurrentWeather (data) {
+  // If data coming from a click event, gets data from local storage
   if(data instanceof Event){
     var text = data.target.innerHTML;
     console.log(text);
-    // This is getting the data stored on line 31.
+    // This is getting the data stored in the storeSearchHistory function
     var data = JSON.parse(localStorage.getItem(text));
     var nameVal = data.nameVal;
     var dateVal = data.dateVal;
@@ -62,6 +70,7 @@ function displayCurrentWeather (data) {
     var humidVal = data.humidVal;
     var windVal = data.windVal;
     var iconVal = data.iconVal;
+  // Else data coming from the argument
   } else {
      // These variables grab the correct data from the API
     var nameVal = data.name;
@@ -96,7 +105,7 @@ function displayUVIndex (data) {
     var longitude = data.coord.lon;
   }
 
-
+  // Fetches UV url and displays color coded based on current value
   var uvURL = `https://api.openweathermap.org/data/2.5/uvi?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
   fetch(uvURL)
     .then(response => response.json())
@@ -152,6 +161,7 @@ function displayFiveDayForecast (data){
   var cardTemp5 = document.querySelector('.day-5-temp');
   var cardHum5 = document.querySelector('.day-5-humidity');
 
+  // Fetches the 7-Day forecast and populates the HTML to the cooresponding cards
   fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,hourly,minutely,alerts&units=imperial&appid=${apiKey}`)
   .then(response => response.json())
   .then(data => {
