@@ -12,7 +12,7 @@ var button = document.querySelector('.submit');
 // This function is a container to call other functions
 function displayCityWeather (){
   // This fetch is for the current weather section
-  fetch('https://api.openweathermap.org/data/2.5/weather?q='+input.value+'&units=imperial&appid='+apiKey)
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=imperial&appid=${apiKey}`)
   .then(response => response.json())
   .then(data => {
   console.log(data);
@@ -30,34 +30,34 @@ function displayCityWeather (){
 
 function displayCurrentWeather (data) {
   // These variables grab the correct data from the API
-  var nameValue = data.name;
-  var dateValue = moment().format('dddd, MMM DD, YYYY');
-  var tempValue = data.main.temp;
-  var humidValue = data.main.humidity;
-  var windValue = data.wind.speed;
+  var nameVal = data.name;
+  var dateVal = moment().format('dddd, MMM DD, YYYY');
+  var tempVal = data.main.temp;
+  var humidVal = data.main.humidity;
+  var windVal = data.wind.speed;
 
   // Adds the correct phrases and above variables to show in HTML
-  main.innerHTML = nameValue; 
-  date.innerHTML = dateValue;
+  main.innerHTML = nameVal; 
+  date.innerHTML = dateVal;
   icon.innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">`;
-  temp.innerHTML = "Temperature: "+tempValue+" °F";
-  humidity.innerHTML = "Humidity: "+humidValue+"%";
-  wind.innerHTML = "Wind Speed: "+windValue+" MPH";
+  temp.innerHTML = `Temperature: ${tempVal} °F`;
+  humidity.innerHTML = `Humidity: ${humidVal}%`;
+  wind.innerHTML = `Wind Speed: ${windVal} MPH`;
 };
 
 // Fetch the UV information and build the color coordination for the UV index
 function displayUVIndex (latitude, longitude) {  
-  var uvQueryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + latitude + "&lon=" + longitude + "&appid=" + apiKey;
-  fetch(uvQueryURL)
+  var uvURL = `https://api.openweathermap.org/data/2.5/uvi?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+  fetch(uvURL)
     .then(response => response.json())
     .then(data => {
-        var uvIndexValue = data.value;
-        if (uvIndexValue >= 0 && uvIndexValue < 3){
-          uvIndex.innerHTML = `<span style="color:green">UV Index: ${uvIndexValue}</span>`;
-        } else if (uvIndexValue >= 3 && uvIndexValue < 8){
-          uvIndex.innerHTML = `<span style="color:orange">UV Index: ${uvIndexValue}</span>`;
-        } else if (uvIndexValue >= 8){
-          uvIndex.innerHTML = `<span style="color:red">UV Index: ${uvIndexValue}</span>`;
+        var uvIndexVal = data.value;
+        if (uvIndexVal >= 0 && uvIndexVal < 3){
+          uvIndex.innerHTML = `<span style="color:green">UV Index: ${uvIndexVal}</span>`;
+        } else if (uvIndexVal >= 3 && uvIndexVal < 8){
+          uvIndex.innerHTML = `<span style="color:orange">UV Index: ${uvIndexVal}</span>`;
+        } else if (uvIndexVal >= 8){
+          uvIndex.innerHTML = `<span style="color:red">UV Index: ${uvIndexVal}</span>`;
         }
     });
 };
@@ -98,43 +98,43 @@ function displayFiveDayForecast (latitude, longitude){
   var humidValue1 = data.daily[1].humidity;
   cardDate1.innerHTML = moment.unix(data.daily[1].dt).format("M/DD/YYYY");
   cardIcon1.innerHTML = `<img src="https://openweathermap.org/img/wn/${data.daily[1].weather[0].icon}@2x.png">`;
-  cardTemp1.innerHTML = "Temperature: " + tempValue1 + " °F";
-  cardHum1.innerHTML = "Humidity: " + humidValue1 + "%";
+  cardTemp1.innerHTML = `Temperature: ${tempValue1} °F`;
+  cardHum1.innerHTML = `Humidity: ${humidValue1}%`;
 
   //Day Two
   var tempValue2 = data.daily[2].temp.day;
   var humidValue2 = data.daily[2].humidity;
   cardDate2.innerHTML = moment.unix(data.daily[2].dt).format("M/DD/YYYY");
   cardIcon2.innerHTML = `<img src="https://openweathermap.org/img/wn/${data.daily[2].weather[0].icon}@2x.png">`;
-  cardTemp2.innerHTML = "Temperature: " + tempValue2 + " °F";
-  cardHum2.innerHTML = "Humidity: " + humidValue2 + "%";
+  cardTemp2.innerHTML = `Temperature: ${tempValue2} °F`;
+  cardHum2.innerHTML = `Humidity: ${humidValue2}%`;
 
   //Day Three
   var tempValue3 = data.daily[3].temp.day;
   var humidValue3 = data.daily[3].humidity;
   cardDate3.innerHTML = moment.unix(data.daily[3].dt).format("M/DD/YYYY");
   cardIcon3.innerHTML = `<img src="https://openweathermap.org/img/wn/${data.daily[3].weather[0].icon}@2x.png">`;
-  cardTemp3.innerHTML = "Temperature: " + tempValue3 + " °F";
-  cardHum3.innerHTML = "Humidity: " + humidValue3 + "%";
+  cardTemp3.innerHTML = `Temperature: ${tempValue3} °F`;
+  cardHum3.innerHTML = `Humidity: ${humidValue3}%`;
 
   //Day Four
   var tempValue4 = data.daily[4].temp.day;
   var humidValue4 = data.daily[4].humidity;
   cardDate4.innerHTML = moment.unix(data.daily[4].dt).format("M/DD/YYYY");
   cardIcon4.innerHTML = `<img src="https://openweathermap.org/img/wn/${data.daily[4].weather[0].icon}@2x.png">`;
-  cardTemp4.innerHTML = "Temperature: " + tempValue4 + " °F";
-  cardHum4.innerHTML = "Humidity: " + humidValue4 + "%";
+  cardTemp4.innerHTML = `Temperature: ${tempValue4} °F`;
+  cardHum4.innerHTML = `Humidity: ${humidValue4}%`;
 
   //Day Five
   var tempValue5 = data.daily[5].temp.day;
   var humidValue5 = data.daily[5].humidity;
   cardDate5.innerHTML = moment.unix(data.daily[5].dt).format("M/DD/YYYY");
   cardIcon5.innerHTML = `<img src="https://openweathermap.org/img/wn/${data.daily[5].weather[0].icon}@2x.png">`;
-  cardTemp5.innerHTML = "Temperature: " + tempValue5 + " °F";
-  cardHum5.innerHTML = "Humidity: " + humidValue5 + "%";
+  cardTemp5.innerHTML = `Temperature: ${tempValue5} °F`;
+  cardHum5.innerHTML = `Humidity: ${humidValue5}%`;
 
   });
 };
 
 // Runs displayCurrentWeather on click
-button.addEventListener('click', displayCurrentWeather);
+button.addEventListener('click', displayCityWeather);
