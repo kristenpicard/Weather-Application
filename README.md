@@ -25,3 +25,15 @@ This screenshot shows what is displayed when the user searches for the city, "De
 This screenshot shows what is displayed as the user searches for an additional city, "San Diego":
 <br>
 ![3](Assets/3.png)
+
+## Installation
+Clone the repository at https://github.com/kristenpicard/Weather-Application and load it on
+code editor of your choice. Vscode is the prefered editor.
+
+## Credits
+Kristen Picard https://github.com/kristenpicard
+
+
+## License
+MIT License
+![test](https://img.shields.io/apm/l/test)
